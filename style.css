@@ -40,7 +40,7 @@ body {
     'one two three add'
     'zero zero point equal';
   gap: 10px;
-  background-color: #1c1c1c;
+  background-color: #03120e;
   padding: 10px;
   width: 400px;
   height: 600px;
@@ -76,7 +76,7 @@ body {
   justify-content: end;
   padding: 20px 40px;
   border-radius: 15px;
-  background-color: #1c1c1c;
+  background-color: #03120e;
 }
 
 .grid-container > .item18 {
@@ -87,36 +87,36 @@ body {
 }
 
 .grid-container > .item5 {
-  background-color: #ff9500;
+  background-color: #26413c;
 }
 
 .grid-container > .item9 {
-  background-color: #ff9500;
+  background-color: #26413c;
 }
 
 .grid-container > .item13 {
-  background-color: #ff9500;
+  background-color: #26413c;
 }
 
 .grid-container > .item17 {
-  background-color: #ff9500;
+  background-color: #26413c;
 }
 
 .grid-container > .item20 {
-  background-color: #ff9500;
+  background-color: #26413c;
 }
 
 .grid-container > .item2 {
-  color: #1c1c1c;
-  background-color: #d4d4d2;
+  color: #03120e;
+  background-color: #8ab0ab;
 }
 
 .grid-container > .item3 {
-  color: #1c1c1c;
-  background-color: #d4d4d2;
+  color: #03120e;
+  background-color: #8ab0ab;
 }
 
 .grid-container > .item4 {
-  color: #1c1c1c;
-  background-color: #d4d4d2;
+  color: #03120e;
+  background-color: #8ab0ab;
 }
