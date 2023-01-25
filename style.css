@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=VT323&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+  font-family:'IBM Plex Mono', monospace ;
+}
+
+.item1 { grid-area: screen; }
+.item2 { grid-area: AC; }
+.item3 { grid-area: fake1; }
+.item4 { grid-area: fake2; }
+.item5 { grid-area: divide; }
+.item6 { grid-area: seven; }
+.item7 { grid-area: eight; }
+.item8 { grid-area: nine; }
+.item9 { grid-area: multiply; }
+.item10 { grid-area: four; }
+.item11 { grid-area: five; }
+.item12 { grid-area: six; }
+.item13 { grid-area: subtract; }
+.item14 { grid-area: one; }
+.item15 { grid-area: two; }
+.item16 { grid-area: three; }
+.item17 { grid-area: add; }
+.item18 { grid-area: zero; }
+.item19 { grid-area: point; }
+.item20 { grid-area: equal; }
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'screen screen screen screen'
+    'AC fake1 fake2 divide'
+    'seven eight nine multiply'
+    'four five six subtract'
+    'one two three add'
+    'zero zero point equal';
+  gap: 10px;
+  background-color: #1c1c1c;
+  padding: 10px;
+  width: 400px;
+  height: 600px;
+  border-radius: 15px;
+  
+}
+
+
+.grid-container > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 87px;
+  color: white;
+  background-color: #505050;
+  padding: 20px 0;
+  font-size: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 200px;
+}
+
+.grid-container > .item1 {
+  cursor: alias;
+  width: 100%;
+  justify-content: end;
+  padding: 20px 40px;
+  border-radius: 15px;
+  background-color: #1c1c1c;
+}
+
+.grid-container > .item18 {
+  padding: 0 35px;
+  justify-content: start;
+  width: 100%;
+  border-radius: 100px;
+}
+
+.grid-container > .item5 {
+  background-color: #ff9500;
+}
+
+.grid-container > .item9 {
+  background-color: #ff9500;
+}
+
+.grid-container > .item13 {
+  background-color: #ff9500;
+}
+
+.grid-container > .item17 {
+  background-color: #ff9500;
+}
+
+.grid-container > .item20 {
+  background-color: #ff9500;
+}
+
+.grid-container > .item2 {
+  color: #1c1c1c;
+  background-color: #d4d4d2;
+}
+
+.grid-container > .item3 {
+  color: #1c1c1c;
+  background-color: #d4d4d2;
+}
+
+.grid-container > .item4 {
+  color: #1c1c1c;
+  background-color: #d4d4d2;
+}
