@@ -2,22 +2,29 @@ let number1 = "";
 let number2 = "";
 let operator = "";
 
+function clear() {
+  number1 = "";
+  number2 = "";
+  operator = "";
+  screen.textContent = "0";
+}
+
 function addToFirstNumber(num) {
-    if(number1.length < 8) { 
+    if(number1.length < 12) { 
     number1 += num;
     screen.textContent = number1;
     }
 }
 
 function addToSecondNumber(num) {
-    if(number2.length < 8) {
+    if(number2.length < 12) {
         number2 += num;
         screen.textContent = number2;
     }
 }
 
 function add(num1, num2) {
-    return num1 + num2;
+    return parseInt(num1) + parseInt(num2);
 }
 
 function subtract(num1, num2) {
@@ -29,7 +36,7 @@ function multiply(num1, num2) {
 }
 
 function divide(num1, num2) {
-    return num1 / num2;
+    return Math.round((num1 / num2) * 100) / 100;
 }
 
 function operate(operator, num1, num2) {
@@ -138,23 +145,57 @@ const screen = document.querySelector('.item1');
 
 const divideSign = document.querySelector('.item5');
 divideSign.addEventListener("click", () => {
-  operator = "/";
+  if(number2 == ""){
+    operator = "/";
+  } else {
+    number1 = operate(operator, number1, number2);
+    number2 = "";
+    operator = "/";
+    screen.textContent = number1;
+  }
 });
 
 const multiplySign = document.querySelector('.item9');
 multiplySign.addEventListener("click", () => {
-  operator = "*";
+  if (number2 == "") {
+    operator = "*";
+  } else {
+    number1 = operate(operator, number1, number2);
+    number2 = "";
+    operator = "*";
+    screen.textContent = number1;
+  }
 });
 
 const subtractSign = document.querySelector('.item13');
 subtractSign.addEventListener("click", () => {
-  operator = "-";
+if (number2 == "") {
+    operator = "-";
+  } else {
+    number1 = operate(operator, number1, number2);
+    number2 = "";
+    operator = "-";
+    screen.textContent = number1;
+  }
 });
 
 const addSign = document.querySelector('.item17');
 addSign.addEventListener("click", () => {
-  operator = "+";
+  if (number2 == "") {
+    operator = "+";
+  } else {
+    number1 = operate(operator, number1, number2);
+    number2 = "";
+    operator = "+";
+    screen.textContent = number1;
+  }
 });
 
+const equalSign = document.querySelector('.item20');
+equalSign.addEventListener("click", () => {
+  screen.textContent = operate(operator, number1, number2);
+});
 
+const clearButton = document.querySelector('.item2');
+clearButton.addEventListener("click", clear);
 
