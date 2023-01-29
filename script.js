@@ -10,14 +10,14 @@ function clear() {
 }
 
 function addToFirstNumber(num) {
-    if(number1.length < 12) { 
+    if(number1.length < 6) { 
     number1 += num;
     screen.textContent = number1;
     }
 }
 
 function addToSecondNumber(num) {
-    if(number2.length < 12) {
+    if(number2.length < 6) {
         number2 += num;
         screen.textContent = number2;
     }
@@ -36,7 +36,13 @@ function multiply(num1, num2) {
 }
 
 function divide(num1, num2) {
+  if (num2 == 0){
+    alert("You can't divide by zero!");
+    clear();
+    return screen.textContent = "0";
+  } else { 
     return Math.round((num1 / num2) * 100) / 100;
+  }
 }
 
 function operate(operator, num1, num2) {
@@ -193,9 +199,29 @@ addSign.addEventListener("click", () => {
 
 const equalSign = document.querySelector('.item20');
 equalSign.addEventListener("click", () => {
-  screen.textContent = operate(operator, number1, number2);
+  if (number1 == "" || number2 == "" || operator == ""){
+    screen.textContent = "0";
+  } else {
+    screen.textContent = operate(operator, number1, number2);
+  }
 });
 
 const clearButton = document.querySelector('.item2');
 clearButton.addEventListener("click", clear);
 
+const point = document.querySelector('.item19');
+point.addEventListener("click", () => {
+  if (operator == "") {
+    if(number1.includes(".")){
+      return;
+    } else {
+      addToFirstNumber(".");
+    }
+  } else {
+    if(number2.includes(".")){
+      return;
+    } else {
+      addToSecondNumber(".");
+    }
+  }
+});
