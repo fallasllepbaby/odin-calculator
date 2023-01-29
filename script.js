@@ -9,6 +9,25 @@ function clear() {
   screen.textContent = "0";
 }
 
+function selectedButton(selector) {
+  selector.style.backgroundColor = "#8ab0ab"; 
+  selector.style.color = "#26413c";
+};
+
+function clearSelectedButton() {
+  divideSign.style.backgroundColor = "#26413c";
+  divideSign.style.color = "#ffffff";
+  multiplySign.style.backgroundColor = "#26413c";
+  multiplySign.style.color = "#ffffff";
+  addSign.style.backgroundColor = "#26413c";
+  addSign.style.color = "#ffffff";
+  subtractSign.style.backgroundColor = "#26413c";
+  subtractSign.style.color = "#ffffff";
+};
+
+  
+  
+
 function addToFirstNumber(num) {
     if(number1.length < 6) { 
     number1 += num;
@@ -17,6 +36,7 @@ function addToFirstNumber(num) {
 }
 
 function addToSecondNumber(num) {
+  clearSelectedButton();
     if(number2.length < 6) {
         number2 += num;
         screen.textContent = number2;
@@ -151,6 +171,9 @@ const screen = document.querySelector('.item1');
 
 const divideSign = document.querySelector('.item5');
 divideSign.addEventListener("click", () => {
+  if (number1 == ""){
+    return;
+  } else { 
   if(number2 == ""){
     operator = "/";
   } else {
@@ -159,10 +182,15 @@ divideSign.addEventListener("click", () => {
     operator = "/";
     screen.textContent = number1;
   }
+  selectedButton(divideSign);
+  }
 });
 
 const multiplySign = document.querySelector('.item9');
 multiplySign.addEventListener("click", () => {
+  if (number1 == ""){
+    return;
+  } else { 
   if (number2 == "") {
     operator = "*";
   } else {
@@ -171,11 +199,16 @@ multiplySign.addEventListener("click", () => {
     operator = "*";
     screen.textContent = number1;
   }
+  selectedButton(multiplySign);
+}
 });
 
 const subtractSign = document.querySelector('.item13');
 subtractSign.addEventListener("click", () => {
-if (number2 == "") {
+  if (number1 == ""){
+    return;
+  } else { 
+  if (number2 == "") {
     operator = "-";
   } else {
     number1 = operate(operator, number1, number2);
@@ -183,10 +216,15 @@ if (number2 == "") {
     operator = "-";
     screen.textContent = number1;
   }
+  selectedButton(subtractSign);
+}
 });
 
 const addSign = document.querySelector('.item17');
 addSign.addEventListener("click", () => {
+  if (number1 == ""){
+    return;
+  } else { 
   if (number2 == "") {
     operator = "+";
   } else {
@@ -194,6 +232,8 @@ addSign.addEventListener("click", () => {
     number2 = "";
     operator = "+";
     screen.textContent = number1;
+  }
+  selectedButton(addSign);
   }
 });
 
@@ -204,6 +244,7 @@ equalSign.addEventListener("click", () => {
   } else {
     screen.textContent = operate(operator, number1, number2);
   }
+  
 });
 
 const clearButton = document.querySelector('.item2');
@@ -223,5 +264,35 @@ point.addEventListener("click", () => {
     } else {
       addToSecondNumber(".");
     }
+  }
+});
+
+const backspace = document.querySelector('.item3');
+backspace.addEventListener("click", () =>{
+  if(operator == ""){
+    number1 = number1.slice(0, -1);
+    if(number1 == ""){
+      screen.textContent = "0";
+    } else {
+      screen.textContent = number1;
+    }
+  } else {
+    number2 = number2.slice(0, -1);
+    if (number2 == "") {
+      screen.textContent = "0";
+    } else {
+      screen.textContent = number2;
+    }
+  }
+});
+
+const plusAndMinus = document.querySelector('.item4');
+plusAndMinus.addEventListener("click", () => {
+  if (operator == "") {
+    number1 = number1*(-1);
+    screen.textContent = number1;
+  } else {
+    number2 = number2 * (-1);
+    screen.textContent = number2;
   }
 });
